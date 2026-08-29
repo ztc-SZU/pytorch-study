@@ -17,3 +17,19 @@ def corr2d_multi_in_out(X, K):
 K=torch.stack((K,K+1,K+2),0)
 print(K.shape)
 print(corr2d_multi_in_out(X, K))
+
+# 使用全连接层实现1*1卷积
+def corr2d_multi_in_out_1x1(X, K):
+    c_i, h, w = X.shape
+    c_o = K.shape[0]
+    X = X.reshape((c_i, h * w))
+    K = K.reshape((c_o, c_i))
+    # 全连接层中的矩阵乘法
+    Y = torch.matmul(K, X)
+    return Y.reshape((c_o, h, w))
+X = torch.normal(0, 1, (3, 3, 3))
+K = torch.normal(0, 1, (2, 3, 1, 1))
+
+Y1 = corr2d_multi_in_out_1x1(X, K)
+Y2 = corr2d_multi_in_out(X, K)
+assert float(torch.abs(Y1 - Y2).sum()) < 1e-6

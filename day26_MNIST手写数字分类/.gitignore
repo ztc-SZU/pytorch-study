@@ -1,0 +1,62 @@
+# ==================== Python ====================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ==================== 模型和数据 ====================
+checkpoints/
+*.pth
+*.pt
+*.h5
+*.pb
+data/
+*.npy
+*.npz
+
+# ==================== 日志和图片 ====================
+logs/
+*.log
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# ==================== IDE ====================
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# ==================== 系统文件 ====================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==================== Jupyter ====================
+.ipynb_checkpoints/
+*.ipynb
+
+# ==================== 环境 ====================
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ==================== 其他 ====================
+*.tmp
+*.temp
+*.swp
+*.swo
+.directory
